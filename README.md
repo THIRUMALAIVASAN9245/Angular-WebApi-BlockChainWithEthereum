@@ -14,10 +14,10 @@ Nodes: Hospital, Health database (Govt Entity), Insurer.
  - Then the hospital management complete the billing process of the user based on the claim settlement.
  - Each request and response will be noted in blocks as a transaction.
  
- ------------------------------------------- ** Hospital Application Screen 1: ** -------------------------------------------
+ ------------------------------------------- **Hospital Application Screen 1:** -------------------------------------------
  
    <a><img src="https://github.com/THIRUMALAIVASAN9245/Angular-WebApi-BlockChainWithEthereum/blob/master/BlockChain_Screen1.jpg"/></a>
  
- ------------------------------------------- ** Hospital Application Screen 2: ** -------------------------------------------
+ ------------------------------------------- **Hospital Application Screen 2:** -------------------------------------------
  
    <a><img src="https://github.com/THIRUMALAIVASAN9245/Angular-WebApi-BlockChainWithEthereum/blob/master/BlockChain_Screen2.jpg"/></a>
