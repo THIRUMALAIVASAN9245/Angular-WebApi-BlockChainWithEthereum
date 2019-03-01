@@ -1,0 +1,143 @@
+<div class="container-fluid container-margin-top">
+    <div class="panel panel-default">
+        <div class="panel-heading display-flex">
+            <div class="width-95">
+                <h4>Block #{{blocksId}}</h4>
+            </div>
+            <div class="width-5">
+                <h4><a (click)="onClickBack()">Back</a></h4>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                     {{blockDetails | json}}
+                    <div class="block-detail-view divst-group row">
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>ExtraData : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.extraData}} </span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>GasLimit : </span>
+                        </div>
+                        <div class="col-md-6 font-text">
+                            <span>{{blockDetails.gasLimit}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>GasUsed : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.gasUsed}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>MixHash : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.mixHash}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>Once : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.nonce}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>ParentHash : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.parentHash}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>ReceiptsRoot : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.receiptsRoot}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>Sha3Uncles : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.sha3Uncles}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>Size : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.size}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>StateRoot : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.stateRoot}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>TotalDifficulty : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.totalDifficulty}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>TransactionsRoot : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{blockDetails.transactionsRoot}}</span>
+                        </div>
+
+                        <div class="col-md-12 col-md-offset-1 font-text"><b>Transactions : </b></div>
+                        <div class="col-md-11 col-md-offset-1 mt-3">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light" style="background-color: #d2d7d7;">
+                                        <tr class="text-center">
+                                            <th class="text-center">TxHash</th>
+                                            <th class="text-center">Block</th>
+                                            <th class="text-center">Age</th>
+                                            <th class="text-center">From</th>
+                                            <th class="text-center">To</th>
+                                            <th class="text-center">Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let transaction of blockDetails.transactions">
+                                            <td class="col-xs-1 text">
+                                                <a [routerLink]="['/transaction-detail', transaction.hash]">
+                                                    <span>{{transaction.hash}}</span>
+                                                </a>
+                                            </td>
+                                            <td class="col-xs-1 text"><span>{{transaction.blockHash}}</span></td>
+                                            <td class="col-xs-1 text-center">
+                                                <span>{{transaction.blockNumber}}</span></td>
+                                            <td class="col-xs-3 text"><span>{{transaction.from}}</span></td>
+                                            <td class="col-xs-3 text"><span>{{transaction.to}}</span></td>
+                                            <td class="col-xs-3 text-center"><span>{{transaction.input}}</span></td>
+                                        </tr>
+                                        <tr *ngIf="!blockDetails?.transactions?.length">
+                                            <td colspan="6"> No data found...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-md-4">Uncles : </div>
+                        <div class="col-md-8">{{ blockDetails.uncles | json }}</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
