@@ -16,8 +16,8 @@ Nodes: Hospital, Health database (Govt Entity), Insurer.
  
  -------------------------------------------**Hospital Application Screen 1:**-------------------------------------------
  
-       <a><img src="https://github.com/THIRUMALAIVASAN9245/Angular-WebApi-BlockChainWithEthereum/blob/master/BlockChain_Screen1.jpg"/></a>
+   <a><img src="https://github.com/THIRUMALAIVASAN9245/Angular-WebApi-BlockChainWithEthereum/blob/master/BlockChain_Screen1.jpg"/></a>
  
  -------------------------------------------**Hospital Application Screen 2:**-------------------------------------------
  
-      <a><img src="https://github.com/THIRUMALAIVASAN9245/Angular-WebApi-BlockChainWithEthereum/blob/master/BlockChain_Screen2.jpg"/></a>
+   <a><img src="https://github.com/THIRUMALAIVASAN9245/Angular-WebApi-BlockChainWithEthereum/blob/master/BlockChain_Screen2.jpg"/></a>
