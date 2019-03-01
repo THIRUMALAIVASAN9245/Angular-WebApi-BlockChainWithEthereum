@@ -1,0 +1,72 @@
+<div class="container-fluid container-margin-top">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>View Transactions</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- {{ transactionDetails[0] | json}} -->
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light" style="background-color: #d2d7d7;">
+                                <tr class="text-center">
+                                    <th class="text-left">Event</th>
+                                    <th class="text-center">Policy #</th>
+                                    <th class="text-left">Time</th>
+                                    <th class="text-left">Date</th>
+                                    <th class="text-left">Transaction source</th>
+                                    <th class="text-left">Status</th>
+                                    <!-- <th class="text-center">Value</th> -->
+                                    <!-- <th class="text-center">Data</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let transaction of transactionDetails">
+                                    <!-- <td class="col-xs-1 text">
+                                        <a [routerLink]="['/transaction-detail', transaction.hash]">
+                                            <span>{{transaction.hash}}</span>
+                                        </a>
+                                    </td> -->
+                                    <td class="textnew">
+                                        <a [routerLink]="['/transaction-detail', transaction.hash]">
+                                            <span>{{getTransactionData(transaction.input).Event}}</span>
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <span>{{getTransactionData(transaction.input).Policy}}</span></td>
+                                    <td class="text-center">
+                                        <span>{{getTransactionData(transaction.input).Time}}</span></td>
+                                    <td class="text-center">
+                                        <span>{{getTransactionData(transaction.input).Date}}</span></td>
+                                    <td class="textnew">
+                                        <span>{{getTransactionData(transaction.input).Source}}</span></td>
+                                    <td class="textnew">
+                                        <span>{{getTransactionData(transaction.input).RequestStatus}}</span></td>
+                                    <!-- <td class="col-xs-2 text-center"><span>{{getTransactionData(transaction.input) | json}}</span></td> -->
+                                    <!-- <td class="col-xs-3 text-center">
+                                        <div class="row setup-content" id="step-1">
+                                            <div class="col-xs-6 col-md-offset-3">
+                                                <div class="form-group" *ngFor="let item of getTransactionData(transaction.input) | keyvalue">
+                                                    <div class="col-md-6 labal-policy">
+                                                        <label class="control-label">{{item.key}}</label>
+                                                    </div>
+                                                    <div class="col-md-6 labal-policy-value">
+                                                        <label class="control-label">{{item.value}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td> -->
+                                </tr>
+                                <tr *ngIf="!transactionDetails?.length">
+                                    <td colspan="6"> No data found...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="container-fluid container-margin-top">
+    <div class="panel panel-default">
+        <div class="panel-heading display-flex">
+            <div class="width-95">
+                <h4>Transaction Hash #{{transactionHashId}}</h4>
+            </div>
+            <div class="width-5">
+                <h4><a (click)="onClickBack()">Back</a></h4>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- {{transactionDetails | json}} -->
+                    <div class="block-detail-view divst-group row">
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>Transaction Hash : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{transactionDetails.hash}} </span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>Nonce : </span>
+                        </div>
+                        <div class="col-md-6 font-text">
+                            <span>{{transactionDetails.nonce}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>BlockHash : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{transactionDetails.blockHash}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>BlockNumber : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{transactionDetails.blockNumber}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>From : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{transactionDetails.from}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>To : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{transactionDetails.to}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>Value : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{transactionDetails.value}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>Gas : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{transactionDetails.gas}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>GasPrice : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{transactionDetails.gasPrice}}</span>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-1 font-text">
+                            <span>Input : </span>
+                        </div>
+                        <div class="col-md-8 font-text">
+                            <span>{{getTransactionData(transactionDetails.input)}}</span>
+                            <!-- <div class="row setup-content" id="step-1">
+                                <div class="col-xs-6 col-md-offset-3">
+                                    <div class="form-group" *ngFor="let item of getTransactionData(transactionDetails.input) | keyvalue">
+                                        <div class="col-md-6 labal-policy">
+                                            <label class="control-label">{{item.key}}</label>
+                                        </div>
+                                        <div class="col-md-6 labal-policy-value">
+                                            <label class="control-label">{{item.value}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                             -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,229 @@
+<div style="text-align:center">
+    <div class="bg-primary dashboard-title pt-3">
+        <!-- <i class="fa fa-dashboard opacity" style="font-size:36px"></i> -->
+        <h4 class="p-2 ng-star-inserted">{{title}}</h4>
+    </div>
+</div>
+<div style="padding-top: 2%;" class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-xl-6 col-lg-5 col-md-offset-1">
+            <div routerLink="/view-blocks" class="card card-primary-new card-inverse card-radius cursor">
+                <div class="card-header card-primary-new">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-cubes opacity fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-xs-right">
+                            <div class="huge">{{transactionCount}}</div>
+                            <div>Number of Blocks!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer card-primary-new card-footer-primary">
+                    <a href="javascript:;">
+                        <span class="pull-xs-left">View Details</span>
+                        <span class="pull-xs-right">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </span>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-6 col-xl-6 col-lg-5">
+            <div routerLink="/view-transaction" class="card card-orange card-inverse card-radius cursor">
+                <div class="card-header card-orange">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-exchange opacity fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-xs-right">
+                            <div class="huge">{{transactionCount}}</div>
+                            <div>Number of Transaction!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer card-orange card-footer-green">
+                    <a href="javascript:;">
+                        <span class="pull-xs-left">View Details</span>
+                        <span class="pull-xs-right">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </span>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div style="padding-top: 2%;" class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-xl-6 col-lg-5 col-md-offset-1">
+            <div class="card card-yellow card-inverse cursor">
+                <div class="card-header card-yellow">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-sitemap opacity fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-xs-right">
+                            <div class="huge">{{peerCount}}</div>
+                            <div>Number of Peers!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer card-yellow card-footer-yellow">
+                    <a href="javascript:;">
+                        <span class="pull-xs-left">View Details</span>
+                        <span class="pull-xs-right">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </span>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-6 col-lg-5">
+            <div routerLink="/view-account" class="card card-blue card-inverse cursor">
+                <div class="card-header card-blue">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-street-view opacity fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-xs-right">
+                            <div class="huge">{{accountCount}}</div>
+                            <div>Number of Accounts!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer card-blue card-footer-blue">
+                    <a href="javascript:;">
+                        <span class="pull-xs-left">View Details</span>
+                        <span class="pull-xs-right">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </span>
+                        <div class="clearfix"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div style="padding-top: 2%;" class="container-fluid">
+    <div class="row">
+        <div class=" col-md-6 col-xl-6 col-lg-5 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Latest Blocks</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light" style="background-color: #d2d7d7;">
+                                        <tr class="text-center">
+                                            <th class="text-center">Block</th>
+                                            <!-- <th class="text-center">HashId</th> -->
+                                            <th class="text-center">Trans</th>
+                                            <!-- <th class="text-center">GasLimit</th>
+                                            <th class="text-center">GasUsed</th> -->
+                                            <th class="text-center">ParentHash</th>
+                                            <th class="text-center">TransactionsRoot</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let block of blocks">
+                                            <td class="col-xs-1 text-center">
+                                                <a [routerLink]="['/block-detail', block.number]">
+                                                    <span>{{block.number}}</span>
+                                                </a>
+                                            </td>
+                                            <!-- <td class="col-xs-3 text"><span>{{block.hash}}</span></td> -->
+                                            <td class="col-xs-1 text-center">{{block.transactions?.length}}</td>
+                                            <!-- <td class="col-xs-1 text-center">{{block.gasLimit}}</td>
+                                            <td class="col-xs-1 text-center">{{block.gasUsed}}</td> -->
+                                            <td class="col-xs-2 text"><span>{{block.parentHash}}</span></td>
+                                            <td class="col-xs-2 text"><span>{{block.transactionsRoot}}</span></td>
+                                        </tr>
+                                        <tr *ngIf="!blocks?.length">
+                                            <td colspan="7"> No data found...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-xs btn-block btn-soft-primary" routerLink="/view-blocks">View All Blocks</a>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-6 col-xl-6 col-lg-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Latest Transactions</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light" style="background-color: #d2d7d7;">
+                                        <tr class="text-center">
+                                            <th class="text-left">Event</th>
+                                            <th class="text-center">Policy #</th>
+                                            <th class="text-left">Time</th>
+                                            <th class="text-left">Date</th>
+                                            <th class="text-left">Transaction source</th>
+                                            <th class="text-left">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let transaction of transactionDetails">
+                                            <td class="textnew">
+                                                <a [routerLink]="['/transaction-detail', transaction.hash]">
+                                                    <span>{{getTransactionData(transaction.input).Event}}</span>
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <span>{{getTransactionData(transaction.input).Policy}}</span></td>
+                                            <td class="text-center">
+                                                <span>{{getTransactionData(transaction.input).Time}}</span></td>
+                                            <td class="text-center">
+                                                <span>{{getTransactionData(transaction.input).Date}}</span></td>
+                                            <td class="text-center">
+                                                <span>{{getTransactionData(transaction.input).Source}}</span></td>
+                                            <td class="textnew">
+                                                <span>{{getTransactionData(transaction.input).RequestStatus}}</span>
+                                            </td>
+                                            <!-- <td class="col-xs-1 text">
+                                                <a [routerLink]="['/transaction-detail', transaction.hash]">
+                                                    <span>{{transaction.hash}}</span>
+                                                </a>
+                                            </td>
+                                            <td class="col-xs-1 text"><span>{{transaction.blockHash}}</span></td>
+                                            <td class="col-xs-1 text-center">
+                                                <span>{{transaction.blockNumber}}</span></td>
+                                            <td class="col-xs-3 text"><span>{{transaction.from}}</span></td>
+                                            <td class="col-xs-3 text"><span>{{transaction.to}}</span></td>
+                                            <td class="col-xs-3 text-center"><span>{{transaction.input}}</span></td> -->
+                                        </tr>
+                                        <tr *ngIf="!transactionDetails?.length">
+                                            <td colspan="6"> No data found...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-xs btn-block btn-soft-primary" routerLink="/view-transaction">View All
+                        Transactions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

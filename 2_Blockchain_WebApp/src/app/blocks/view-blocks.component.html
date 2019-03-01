@@ -1,0 +1,104 @@
+<div class="container-fluid container-margin-top">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>View Blocks</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- {{ blocks[0] | json}} -->
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-light" style="background-color: #d2d7d7;">
+                                <tr class="text-center">
+                                    <th class="text-center">Block Number</th>
+                                    <th class="text-center">Hash Id</th>
+                                    <!-- <th class="text-center">Difficulty</th>
+                                            <th class="text-center">Miner</th> 
+                                            <th class="text-center">Timestamp</th>
+                                            <th class="text-center">Uncles</th>-->
+                                    <th class="text-center">Transactions</th>
+                                    <th class="text-center">GasLimit</th>
+                                    <th class="text-center">GasUsed</th>
+                                    <!-- <th class="text-center">MixHash</th>
+                                            <th class="text-center">nonce</th> 
+                                            <th class="text-center">ReceiptsRoot</th>
+                                            <th class="text-center">Size</th>
+                                            <th class="text-center">StateRoot</th>
+                                            <th class="text-center">TotalDifficulty</th>-->
+                                    <th class="text-center">ParentHash</th>
+                                    <th class="text-center">TransactionsRoot</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let block of blocks">
+                                    <td class="col-xs-2 text-center">
+                                        <a [routerLink]="['/block-detail', block.number]">
+                                            <span>{{block.number}}</span>
+                                        </a>
+                                    </td>
+                                    <td class="col-xs-3 text"><span>{{block.hash}}</span></td>
+                                    <!-- <td>{{block.difficulty}}</td>
+                                            <td>{{block.miner}}</td> 
+                                            <td>{{block.timestamp}}</td>
+                                            <td>{{block.uncles?.length}}</td>-->
+                                    <td class="col-xs-1 text-center">{{block.transactions?.length}}</td>
+                                    <td class="col-xs-1 text-center">{{block.gasLimit}}</td>
+                                    <td class="col-xs-1 text-center">{{block.gasUsed}}</td>
+                                    <!-- <td>{{block.mixHash}}</td>
+                                            <td>{{block.nonce}}</td>                                 
+                                            <td>{{block.receiptsRoot}}</td>
+                                            <td>{{block.size}}</td>
+                                            <td>{{block.stateRoot}}</td>
+                                            <td>{{block.totalDifficulty}}</td>-->
+                                    <td class="col-xs-2 text"><span>{{block.parentHash}}</span></td>
+                                    <td class="col-xs-2 text"><span>{{block.transactionsRoot}}</span></td>
+                                </tr>
+                                <tr *ngIf="!blocks?.length">
+                                    <td colspan="7"> No data found...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+
+<div class="container-fluid container-margin-top">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Blocks</h4>
+        </div>
+        <div class="panel-body">
+            <div>No of Blocks : {{blocks?.length}}</div>
+            <div class="row">
+                <div class="col-md-12" *ngIf="!blocks?.length">
+                    No data found
+                </div>
+                <div class="col-md-6" *ngFor="let block of blocks">
+                    <ul class="list-group row">
+                        <li class="list-group-item col-md-12">
+                            ExtraData : {{block.extraData}}
+                        </li>
+                        <li class="list-group-item col-md-12">GasLimit : {{block.gasLimit}}</li>
+                        <li class="list-group-item col-md-12">GasUsed : {{block.gasUsed}}</li>
+                        <li class="list-group-item col-md-12">MixHash : {{block.mixHash}}</li>
+                        <li class="list-group-item col-md-12">Once : {{block.nonce}}</li>
+                        <li class="list-group-item col-md-12">ParentHash : {{block.parentHash}}</li>
+                        <li class="list-group-item col-md-12">ReceiptsRoot : {{block.receiptsRoot}}</li>
+                        <li class="list-group-item col-md-12">Sha3Uncles : {{block.sha3Uncles}}</li>
+                        <li class="list-group-item col-md-12">Size : {{block.size}}</li>
+                        <li class="list-group-item col-md-12">StateRoot : {{block.stateRoot}}</li>
+                        <li class="list-group-item col-md-12">TotalDifficulty : {{block.totalDifficulty}}</li>
+                        <li class="list-group-item col-md-12">TransactionsRoot : {{block.transactionsRoot}}</li>
+                        <li class="list-group-item col-md-12">Transactions : {{ block.transactions | json }}</li>
+                        <li class="list-group-item col-md-12">Uncles : {{ block.uncles | json }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
