@@ -1,0 +1,438 @@
+{
+  "ApplicationName": "BlockChainFirstApp",
+  "DisplayName": "Hello, Thirumalai!",
+  "Description": "A simple application to send request and get response",
+  "ApplicationRoles": [
+    {
+      "Name": "Hospital",
+      "Description": "A person sending a request."
+    },
+    {
+      "Name": "Insurer",
+      "Description": "A person responding to a request"
+    },
+    {
+      "Name": "HealthDb",
+      "Description": "A person responding to a request"
+    }
+  ],
+  "Workflows": [
+    {
+      "Name": "BlockChainFirstApp",
+      "DisplayName": "Request Response",
+      "Description": "A simple workflow to send a request and receive a response.",
+      "Initiators": [ "Hospital" ],
+      "StartState": "PolicyRequest",
+      "Properties": [
+        {
+          "Name": "State",
+          "DisplayName": "State",
+          "Description": "Holds the state of the contract.",
+          "Type": {
+            "Name": "state"
+          }
+        },
+        {
+          "Name": "Hospital",
+          "DisplayName": "Hospital",
+          "Description": "A person sending a request.",
+          "Type": {
+            "Name": "Hospital"
+          }
+        },
+        {
+          "Name": "Insurer",
+          "DisplayName": "Insurer",
+          "Description": "A person sending a response.",
+          "Type": {
+            "Name": "Insurer"
+          }
+        },
+		{
+          "Name": "HealthDb",
+          "DisplayName": "HealthDb",
+          "Description": "A person sending a response.",
+          "Type": {
+            "Name": "HealthDb"
+          }
+        },
+        {
+          "Name": "RequestMessage",
+          "DisplayName": "Request Message",
+          "Description": "A request message.",
+          "Type": {
+            "Name": "string"
+          }
+        },
+		{
+          "Name": "Description",
+          "DisplayName": "Description",
+          "Description": "A description message.",
+          "Type": {
+            "Name": "string"
+          }
+        },
+        {
+          "Name": "ResponseMessage",
+          "DisplayName": "Response Message",
+          "Description": "A response message.",
+          "Type": {
+            "Name": "string"
+          }
+        }
+      ],
+      "Constructor": {
+        "Parameters": [
+          {
+            "Name": "message",
+            "Description": "...",
+            "DisplayName": "Verify Policy Number",
+            "Type": {
+              "Name": "string"
+            }
+          }
+        ]
+      },
+      "Functions": [
+        {
+          "Name": "VerifyPolicyStatusRequest",
+          "DisplayName": "PolicyRequest",
+          "Description": "...",
+          "Parameters": [
+            {
+              "Name": "requestMessage",
+              "Description": "...",
+              "DisplayName": "Verify Policy Number",
+              "Type": {
+                "Name": "string"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "VerifyPolicyStatusResponseValid",
+          "DisplayName": "Valid Policy Number",
+          "Description": "...",
+          "Parameters": []
+        },
+		{
+          "Name": "VerifyPolicyStatusResponseInValid",
+          "DisplayName": "InValid Policy Number",
+          "Description": "...",
+          "Parameters": []
+        },
+		{
+          "Name": "SubmitBillDetailsRequest",
+          "DisplayName": "SubmitBillDetails",
+          "Description": "...",
+          "Parameters": [
+            {
+              "Name": "treatmentType",
+              "Description": "...",
+              "DisplayName": "Treatment Type",
+              "Type": {
+                "Name": "string"
+              }
+            },
+			{
+              "Name": "billNumber",
+              "Description": "...",
+              "DisplayName": "Bill Number",
+              "Type": {
+                "Name": "string"
+              }
+            },
+			{
+              "Name": "billAmount",
+              "Description": "...",
+              "DisplayName": "Bill Amount",
+              "Type": {
+                "Name": "string"
+              }
+            },
+			{
+              "Name": "description",
+              "Description": "...",
+              "DisplayName": "Description",
+              "Type": {
+                "Name": "string"
+              }
+            }
+          ]
+        },
+        {
+          "Name": "RejectClaimRequest",
+          "DisplayName": "Reject Claim",
+          "Description": "...",
+          "Parameters": []
+        },
+		{
+          "Name": "ApprovedClaimRequest",
+          "DisplayName": "Approved Claim",
+          "Description": "...",
+          "Parameters": []
+        },
+		{
+          "Name": "HealthDBApprovalRequest",
+          "DisplayName": "Health DB Approval",
+          "Description": "...",
+          "Parameters": []
+        },
+        {
+          "Name": "HealthDBRejectResponse",
+          "DisplayName": "HealthDB Reject Claim",
+          "Description": "...",
+          "Parameters": []
+        },
+		{
+          "Name": "HealthDBApprovedResponse",
+          "DisplayName": "HealthDB Approved Claim",
+          "Description": "...",
+          "Parameters": []
+        },
+        {
+          "Name": "FinalInsurerRejectResponse",
+          "DisplayName": "Insurer Reject Claim",
+          "Description": "...",
+          "Parameters": []
+        },
+		{
+          "Name": "FinalInsurerApprovedResponse",
+          "DisplayName": "Insurer Approved Claim",
+          "Description": "...",
+          "Parameters": []
+        }
+      ],
+      "States": [
+        {
+          "Name": "PolicyRequest",
+          "DisplayName": "PolicyRequest",
+          "Description": "...",
+          "PercentComplete": 25,
+          "Value": 0,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "VerifyPolicyStatusResponseValid",
+              "NextStates": [ "PolicyRespondValid" ],
+              "DisplayName": "Valid Verify Policy Number Response"
+            },
+			{
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "VerifyPolicyStatusResponseInValid",
+              "NextStates": [ "PolicyRespondInValid" ],
+              "DisplayName": "InValid Policy Number Response"
+            }
+          ]
+        },
+        {
+          "Name": "PolicyRespondInValid",
+          "DisplayName": "PolicyRespondInValid",
+          "Description": "...",
+          "PercentComplete": 100,
+          "Value": 1,
+          "Style": "Failure",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": ["Hospital"],
+              "Description": "...",
+              "Function": "VerifyPolicyStatusRequest",
+              "NextStates": [ "PolicyRequest" ],
+              "DisplayName": "Verify Policy Number"
+            }
+          ]
+        },
+		{
+          "Name": "PolicyRespondValid",
+          "DisplayName": "PolicyRespondValid",
+          "Description": "...",
+          "PercentComplete": 50,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "VerifyPolicyStatusRequest",
+              "NextStates": [ "SubmitBillDetailsRequest" ],
+              "DisplayName": "Verify Policy Number"
+            }
+          ]
+        },
+		{
+          "Name": "SubmitBillDetailsRequest",
+          "DisplayName": "SubmitBillDetailsRequest",
+          "Description": "...",
+          "PercentComplete": 50,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["Hospital"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "SubmitBillDetailsRequest",
+              "NextStates": [ "SubmitBillDetailsResponse" ],
+              "DisplayName": "Add Bill Details"
+            }
+          ]
+        },
+		{
+          "Name": "SubmitBillDetailsResponse",
+          "DisplayName": "SubmitBillDetailsResponse",
+          "Description": "...",
+          "PercentComplete": 75,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "RejectClaimRequest",
+              "NextStates": [ "RejectClaimRequest" ],
+              "DisplayName": "Verify Policy Number 1"
+            },
+			{
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "ApprovedClaimRequest",
+              "NextStates": [ "ApprovedClaimRequest" ],
+              "DisplayName": "Verify Policy Number 2"
+            },
+			{
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "HealthDBApprovalRequest",
+              "NextStates": [ "HealthDBApprovalRequest" ],
+              "DisplayName": "Verify Policy Number 3"
+            }
+          ]
+        },
+		{
+          "Name": "RejectClaimRequest",
+          "DisplayName": "RejectClaimRequest",
+          "Description": "...",
+          "PercentComplete": 100,
+          "Value": 1,
+          "Style": "Failure",
+          "Transitions": []
+        },
+		{
+          "Name": "ApprovedClaimRequest",
+          "DisplayName": "ApprovedClaimRequest",
+          "Description": "...",
+          "PercentComplete": 100,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": []
+        },
+		{
+          "Name": "HealthDBApprovalRequest",
+          "DisplayName": "HealthDBApprovalRequest",
+          "Description": "...",
+          "PercentComplete": 70,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": [
+		    {
+              "AllowedRoles": ["HealthDb"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "HealthDBRejectResponse",
+              "NextStates": [ "HealthDBRejectResponse" ],
+              "DisplayName": "Verify Policy Number 1"
+            },
+			{
+              "AllowedRoles": ["HealthDb"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "HealthDBApprovedResponse",
+              "NextStates": [ "HealthDBApprovedResponse" ],
+              "DisplayName": "Verify Policy Number 2"
+			}
+		  ]
+        },
+		{
+          "Name": "HealthDBRejectResponse",
+          "DisplayName": "HealthDBRejectResponse",
+          "Description": "...",
+          "PercentComplete": 85,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": [
+		    {
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "FinalInsurerRejectResponse",
+              "NextStates": [ "FinalInsurerRejectResponse" ],
+              "DisplayName": "Verify Policy Number 1"
+            },
+			{
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "FinalInsurerApprovedResponse",
+              "NextStates": [ "FinalInsurerApprovedResponse" ],
+              "DisplayName": "Verify Policy Number 2"
+			}
+		  ]
+        },
+		{
+          "Name": "HealthDBApprovedResponse",
+          "DisplayName": "HealthDBApprovedResponse",
+          "Description": "...",
+          "PercentComplete": 85,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": [
+		    {
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "FinalInsurerRejectResponse",
+              "NextStates": [ "FinalInsurerRejectResponse" ],
+              "DisplayName": "Verify Policy Number 1"
+            },
+			{
+              "AllowedRoles": ["Insurer"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "FinalInsurerApprovedResponse",
+              "NextStates": [ "FinalInsurerApprovedResponse" ],
+              "DisplayName": "Verify Policy Number 2"
+			}
+		  ]
+        },
+		{
+          "Name": "FinalInsurerRejectResponse",
+          "DisplayName": "FinalInsurerRejectResponse",
+          "Description": "...",
+          "PercentComplete": 100,
+          "Value": 1,
+          "Style": "Failure",
+          "Transitions": []
+        },
+		{
+          "Name": "FinalInsurerApprovedResponse",
+          "DisplayName": "FinalInsurerApprovedResponse",
+          "Description": "...",
+          "PercentComplete": 100,
+          "Value": 1,
+          "Style": "Success",
+          "Transitions": []
+        }
+      ]
+    }
+  ]
+}
